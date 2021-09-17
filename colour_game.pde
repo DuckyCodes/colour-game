@@ -17,6 +17,7 @@ int score = 10;
 int lives = 11;
 
 //intro
+PImage[] gif;
 int f = 8;
 int numberOfFrames;
 
@@ -26,13 +27,16 @@ void setup(){
    size(800,800);
   mode = intro;
   textAlign ( CENTER, CENTER );
- tkey= fkey=false;
+  //animated gif for introduction scene
+ int i = 0;
+  numberOfFrames = 46;
+  gif = new PImage[46];
+  while(i < numberOfFrames ){
+  gif[i] = loadImage("frame_"+i+"_delay-0.1s.gif");
+  i = i + 1;
+  }
 }
 void draw (){
-  image(gif[f], 0, 0 , width, height);
-  println(frameCount);
-  //modulus mod
-  if(frameCount % 2 == 0) f = f + 1; 
-  if(f == numberOfFrames) f = 0;
+  intro();
   
 }
