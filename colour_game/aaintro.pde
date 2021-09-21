@@ -3,8 +3,10 @@ void intro () {
   //Introscreen
  size(800, 800);
  //Intro Text
-
- 
+score = 0;
+timer = 120;
+ w = int(random(0,7));
+ c = int(random(0,7));
  //animated gif for introduction scene
  int i = 7;
  println(f);

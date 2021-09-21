@@ -4,7 +4,9 @@ final int intro = 1;
 final int gameover = 2;
 final int game = 3;
 boolean tkey, fkey;
-
+//everything
+PFont font;
+PFont cfont;
 //colour variables
 color green = #4BFF05;
 color blue = #059DFF;
@@ -19,9 +21,10 @@ color brown = #602B2B;
 //target 
 int score = 10;
 int lives = 11;
+int highscore = 0;
+int timer = 120;
 
 //intro
-PFont font;
 PImage[] gif;
 int f = 8;
 int numberOfFrames;
@@ -31,6 +34,7 @@ String[] words;
 color [] colors;
 int w = int(random(0,6));
 int c = int(random(0,6));
+int r = int(random(2,4));
 //movement
 float x, y, vx, vy;
 
@@ -39,6 +43,7 @@ void setup(){
   mode = intro;
   textAlign ( CENTER, CENTER );
   font = createFont("Sketch 3D.otf",100);
+  cfont = createFont("KidsOnTheMoon.ttf",100);
   //array
   words = new String[7];
   colors = new color[7];
@@ -63,6 +68,14 @@ void setup(){
   while(i < numberOfFrames ){
   gif[i] = loadImage("frame_"+i+"_delay-0.1s.gif");
   i = i + 1;
+  //random
+  w = int(random(0,7));
+  c = int(random(0,7));
+  if(w==c){
+    r = 2;
+  }else{
+    r = 3;
+  }
   }
 }
 void draw (){
