@@ -3,6 +3,7 @@ int mode;
 final int intro = 1;
 final int gameover = 2;
 final int game = 3;
+final int gameover2 = 4;
 boolean tkey, fkey;
 //everything
 PFont font;
@@ -22,7 +23,7 @@ color brown = #602B2B;
 int score = 10;
 int lives = 11;
 int highscore = 0;
-int timer = 120;
+int timer = 240;
 
 //intro
 PImage[] gif;
@@ -34,9 +35,10 @@ String[] words;
 color [] colors;
 int w = int(random(0,6));
 int c = int(random(0,6));
-int r = int(random(2,4));
-//movement
-float x, y, vx, vy;
+int cf = int(random(2,4));
+
+
+
 
 void setup(){
    size(800,800);
@@ -61,6 +63,8 @@ void setup(){
   colors[5] = brown;
   words[6] ="pink";
   colors[6] = pink;
+
+  
   //animated gif for introduction scene
  int i = 0;
   numberOfFrames = 46;
@@ -68,14 +72,6 @@ void setup(){
   while(i < numberOfFrames ){
   gif[i] = loadImage("frame_"+i+"_delay-0.1s.gif");
   i = i + 1;
-  //random
-  w = int(random(0,7));
-  c = int(random(0,7));
-  if(w==c){
-    r = 2;
-  }else{
-    r = 3;
-  }
   }
 }
 void draw (){
@@ -85,6 +81,8 @@ void draw (){
     game(); 
   }else if (mode == gameover){
     gameover();
+  }else if(mode == gameover2){
+    gameover2();
   }else{
     println("Error:Mode =" + mode);
   }

@@ -22,7 +22,7 @@ void game(){
  //word timer 
   timer = timer - 1;
   if(timer == 0){
-   mode = gameover; 
+   mode = gameover2; 
    
    //random 50,50
    
@@ -32,10 +32,16 @@ void gameClicks(){
   if(mouseX<width/2){
    //match
    if(w==c){
-     w = int(random(0,7));
-     c = int(random(0,7));
+     cf = int(random(2,4));     
      timer = 120;
      score = score +1;
+     if(cf>=3){
+      w = int(random(0,6));
+      c = w;
+     }else{
+      w = int(random(0,6));
+      c = int(random(0,6));
+     }  
    }else{
     mode = gameover;
    }
@@ -44,13 +50,17 @@ void gameClicks(){
     if(w==c){
       mode = gameover;
     }else{
-     w = int(random(0,7));
-     c = int(random(0,7));
+     cf = int(random(2,4));
      timer = 120;
      score = score +1;
-    }
-  
-  
+     if(cf>=3){
+      w = int(random(0,6));
+      c = w;
+     }else{
+      w = int(random(0,6));
+      c = int(random(0,6));
+     }  
   
   }
+}
 }
