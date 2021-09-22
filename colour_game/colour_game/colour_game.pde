@@ -1,3 +1,10 @@
+/*useless stuff
+richard zhou
+sept 21 2021
+colour clicker game
+how to use proper identation
+*/
+
 //music
 import ddf.minim.*;
 import ddf.minim.analysis.*;
